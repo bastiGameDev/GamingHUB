@@ -9,7 +9,10 @@ public class MainMenuControl : MonoBehaviour
     [SerializeField] private Transform movingText;
     [SerializeField] private Transform buttonGo;
     private readonly Vector3 _finalPositionRight = new Vector3(-169f, 0.03445524f, 96f);
-    private readonly Vector3 _finalPositionLeft = new Vector3(198.1f, 0.03445524f, -10f);
+    private readonly Vector3 _finalPositionLeft = new Vector3(198.1f, 0.03445524f, 96f);
+    public GameObject startPanel;
+    public AudioSource musicBox;
+    
     
 
 
@@ -22,7 +25,10 @@ public class MainMenuControl : MonoBehaviour
         await movingPanel.DOMove(_finalPositionLeft, 60f).AsyncWaitForCompletion();
     }
 
-    void Update()
+    public async void ButtonGoClick()
     {
+        musicBox.Play();
+        await Task.Delay(600);
+        startPanel.SetActive(false);
     }
 }
