@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class MainMenuControl : MonoBehaviour
 
     private async void Start()
     {
+        await Task.Delay(500);
         buttonGo.DOMove((new Vector3(0f, 0f, 96f)), 2f).SetEase(Ease.OutBack);
         movingText.DOMove((new Vector3(0f, 30f, 96f)), 2f).SetEase(Ease.OutBack);
         await movingPanel.DOMove(_finalPositionRight, 30f).AsyncWaitForCompletion();
